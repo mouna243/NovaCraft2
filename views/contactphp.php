@@ -5,8 +5,6 @@
 </head>
 
 <?php
-// mysqli_connect();
-
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 if (empty($_POST['name']) || empty($_POST['age']) || empty($_POST['email'])) {
