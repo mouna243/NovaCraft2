@@ -1,5 +1,5 @@
 <?php 
-echo"⏩";
+echo "<script> console.log('accee database'); </script>";
 
 $env = parse_ini_file(__DIR__."/.env");
 $host = $env["DB_HOST"];
@@ -9,10 +9,9 @@ $pass =$env["DB_PASS"] ;
 
 $conn = mysqli_connect( $host, $user, $pass, $db);
 if($conn){
-    echo"<h1>✔️</h1>";
+    echo "<script> console.log('bien connecter'); </script>";
 }
 if (!$conn) {
     die("Erreur connexion DB : " . mysqli_connect_error());
 }
-
 
