@@ -1,7 +1,10 @@
-<head>
-    <title>Nova Craft</title>
-    <link rel="icon" href="../assetes/logo.png">
-<link rel="stylesheet" href="../src/output.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  
-</head>
+
+<?php
+session_start();
+//katkhwi session
+session_unset();
+
+//katsali session niha2iyan
+session_destroy();
+header("Location:login");
+
