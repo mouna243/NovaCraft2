@@ -38,8 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         mysqli_stmt_bind_param($stmt, "sss", $user_name, $email, $pw);
 
         if (mysqli_stmt_execute($stmt)) {
-            echo "<p id='flashmessage' class ='z-50 absolute top-1/4 bg-[#c1cbff] text-[#2d50ff] border-[10px] rounded-[40px] p-[10px] text-[20px]'>User ajouté avec succès<i class='fa-regular fa-face-smile-beam'></i></p>";
-            // header("Location: login");
+        
+            header("Location: login");
 
         } else {
             echo "❌ Erreur : " . mysqli_error($conn);
