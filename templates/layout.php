@@ -1,10 +1,9 @@
 <?php
-
 $page = $_SERVER['REQUEST_URI'];
 // echo $page;
 switch ($page) {
     case '/':
-        include  __DIR__. "/../views/home.php";
+        include  __DIR__. "/../auth/login.php";
         break;
     case '/home':
         include  __DIR__. "/../views/home.php";
@@ -23,6 +22,9 @@ switch ($page) {
         break;
     case '/signin':
         include __DIR__. "/../auth/register.php";
+        break;
+    case '/logout':
+        include __DIR__. "/../auth/logout.php";
         break;
 
     default:
