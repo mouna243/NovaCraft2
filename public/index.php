@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 // Include header
 include  __DIR__. "/../templates/header.php";
 // Include layaout
