@@ -6,6 +6,9 @@
 
 <?php
 
+include __DIR__ . "/../config/database.php";
+
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
 if (empty($_POST['name']) || empty($_POST['age']) || empty($_POST['email'])) {
     echo "<p id='message' class ='absolute top-1/4 bg-[#f889515f] text-[#d54e06] border-[10px] rounded-[40px] p-[10px] text-[20px]'>Remplire tout la formule <i class='fa-solid fa-triangle-exclamation'></i></p>";
@@ -41,11 +44,15 @@ if (empty($_POST['name']) || empty($_POST['age']) || empty($_POST['email'])) {
         return;
     }
 
+    
+        $sql ="INSERT INTO contact (name, age, email, message) values(?,?,?,?)";
+        $stmt = mysqli_prepare($conn,$sql);
+        mysqli_stmt_bind_param($stmt,"sdss",$name, $age, $email, $msg );
+       if( mysqli_stmt_execute($stmt)){
 
     echo "<p id='message' class ='absolute top-1/4 bg-[#f2b3f45f] text-[#017552] border-[10px] rounded-[40px] p-[10px] text-[20px]'>La formule a ete bien remplie <i class='fa-regular fa-face-smile-beam'></i></p>";
-
-    echo "<p id='message' class ='absolute h-auto w-[300px] top-1/2 bg-[#fed6ff5f] text-[#0c015d] border-[10px] rounded-[40px] p-[10px] text-[20px]'><strong>Bonjour </strong>".$name."<br> <strong>Votre message :  </strong>".$msg."<strong> a ete bien envoyer</strong> <i class='fa-regular fa-face-smile-beam'></i></p>";
-    exit;
+exit;}
+  
 }
 }
 ?>
